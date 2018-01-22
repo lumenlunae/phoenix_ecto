@@ -137,13 +137,8 @@ defmodule Phoenix.Ecto.SQL.Sandbox do
   end
 
   defp extract_metadata(%Conn{} = conn, header) do
-    list = conn
+    conn
     |> get_req_header(header)
-    IO.puts("SANDBOX:")
-    IO.inspect(conn)
-    IO.puts("KEY:")
-    IO.inspect(header)
-    list
     |> List.first()
     |> decode_metadata()
   end
