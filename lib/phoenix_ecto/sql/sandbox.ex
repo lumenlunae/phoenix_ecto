@@ -140,7 +140,9 @@ defmodule Phoenix.Ecto.SQL.Sandbox do
     list = conn
     |> get_req_header(header)
     IO.puts("SANDBOX:")
-    IO.inspect(list)
+    IO.inspect(conn)
+    IO.puts("KEY:")
+    IO.inspect(header)
     list
     |> List.first()
     |> decode_metadata()
