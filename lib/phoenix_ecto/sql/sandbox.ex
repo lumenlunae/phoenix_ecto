@@ -178,7 +178,7 @@ defmodule Phoenix.Ecto.SQL.Sandbox do
   def decode_metadata(_), do: %{}
 
   defp allow_sandbox_access(%{repo: repo, owner: owner}, sandbox) do
-    &sandbox.mode(repo, :manual)
+    sandbox.mode(repo, :manual)
     Enum.each(List.wrap(repo), &sandbox.allow(&1, owner, self()))
   end
   defp allow_sandbox_access(_metadata, _sandbox), do: nil
